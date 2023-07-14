@@ -1,0 +1,21 @@
+# Stage 1 - the React Dev App
+FROM node:16 as react-dev
+WORKDIR /app/client
+COPY ./client/package*.json ./
+RUN npm install
+COPY ./client .
+EXPOSE 3000
+
+# Stage 2 - the Node.js server
+FROM node:16
+WORKDIR /app
+COPY ./package*.json ./
+RUN npm install --only=prod
+COPY . .
+COPY --from=react-dev /app/client ./client
+
+# Copy the shell script from the host to the container
+COPY start-servers.sh .
+
+EXPOSE 3000
+CMD [ "sh", "start-servers.sh" ]

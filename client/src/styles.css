@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/*  #343f5f #538a93  */
+
+body {
+    background: #f0f0f0;
+    background: linear-gradient(#343f5f, #538a93);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#peers {
+    width: 100%;
+    position: fixed;
+    padding-bottom: 2rem;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+#chat {
+    width: 30%;
+    max-width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    background: white;
+    max-height: 50vh;
+    z-index: 1;
+    overflow-y: auto; /* allows the content to scroll */
+}
+
+#world {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: lightgray;
+}
+
+.dg.main,
+.dg {
+    z-index: 3 !important;
+}
